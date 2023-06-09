@@ -1,0 +1,22 @@
+<ng-container *ngIf="data$ | async as movies">
+  <section class="movie-container">
+    <nz-card *ngFor="let movie of movies"
+      nzHoverable
+      style="width:240px"
+      [nzCover]="coverTemplate"
+      [nzSize]="'small'"
+      [nzActions]="[viewDetail]">
+      <nz-card-meta [nzTitle]="movie.title"></nz-card-meta>
+      <p nz-typography nzEllipsis nzExpandable [nzEllipsisRows]="3">
+        {{ movie.overview }}
+      </p>
+      <ng-template #coverTemplate>
+        <img alt="example" [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" />
+      </ng-template>
+
+      <ng-template #viewDetail>
+        <button nz-button nzType="primary" [routerLink]="['/movie', movie.id]">View Detail</button>
+      </ng-template>
+    </nz-card>
+  </section>
+</ng-container>

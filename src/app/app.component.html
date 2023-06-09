@@ -1,0 +1,16 @@
+<nz-layout>
+  <nz-header>
+    <nz-input-group [nzSuffix]="suffixIconSearch">
+      <input type="text" nz-input placeholder="input search movie" />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <i nz-icon nzType="search"></i>
+    </ng-template>
+  </nz-header>
+  <nz-content>
+    <section class="container">
+      <router-outlet></router-outlet>
+    </section>
+  </nz-content>
+</nz-layout>
+

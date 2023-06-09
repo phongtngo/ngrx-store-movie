@@ -1,0 +1,27 @@
+<ng-container *ngIf="data$ | async as data">
+  <nz-card [nzTitle]="data.title" [nzExtra]="status">
+    <section class="detail">
+      <span>
+        <img
+          nz-image
+          width="300px"
+          [nzSrc]="'https://image.tmdb.org/t/p/w300/' + data.poster_path"
+          alt=""
+        />
+      </span>
+      <span class="detail-overview">
+        <span class="detail-overview">{{ data.overview }}</span>
+        <span class="detail-overview">Release date: {{ data.release_date | date }}</span>
+        <span class="detail-overview">Run time: {{ data.runtime }} minutes</span>
+        <span class="detail-overview">Budget: {{ data.budget | currency }}</span>
+        <span class="detail-overview">Revenue: {{ data.revenue | currency }}</span>
+        <span class="detail-overview">Tagline: {{ data.tagline }}</span>
+      </span>
+    </section>
+  </nz-card>
+
+  <ng-template #status>
+    <small>{{ data.status }}</small>
+  </ng-template>
+
+</ng-container>
